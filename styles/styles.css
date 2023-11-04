@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -11,7 +11,7 @@ body {
 .title {
   color: var(--Text-Black, #0a0e1a);
   margin-bottom: 20px;
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -64,7 +64,7 @@ body {
 .text-container {
   color: var(--Text-Black, #0a0e1a);
 
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -80,7 +80,7 @@ body {
 
 .error-count {
   color: var(--Red, #de4848);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -90,7 +90,7 @@ body {
 
 .alert-count {
   color: var(--Main-Text, #0a0e1a);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -103,7 +103,7 @@ body {
 
 p {
   color: var(--Main-Text, #0a0e1a);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -121,7 +121,7 @@ p {
 
 .log-title {
   color: var(--Text-Black, #0a0e1a);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 21px;
   font-style: normal;
   font-weight: 600;
@@ -131,7 +131,7 @@ p {
 
 .log-time {
   color: var(--Text-Black, #0a0e1a);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -165,7 +165,7 @@ p {
 
 .error-name {
   color: var(--70-text, #78828e);
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -180,7 +180,7 @@ p {
   background: #fff;
   border-radius: 8px;
   padding: 6px 12px;
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
