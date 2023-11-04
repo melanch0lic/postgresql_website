@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-bar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.menu {
+  display: none;
+  color: #fff;
+  transition: left 0.3s ease;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu ul li {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.menu ul li:hover {
+  transform: translateX(10px);
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: #ffd700; /* Change the color on hover */
+}
+
+.database-info {
+  border-radius: 12px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow effect */
+  margin-bottom: 20px; /* Optional: Add space between database info containers */
+}
+
+.content {
+  padding: 20px;
+}
+
+p {
+  color: var(--Text-Black, #78828e);
+  font-family: Open Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 19.6px */
+}
+
+h2 {
+  color: var(--Text-Black, #0a0e1a);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+}
+
+.error-count {
+  color: var(--Red, #de4848);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 23.4px */
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
+.chart-container {
+  position: relative;
+  width: 300px;
+  max-height: 400px; /* Максимальная высота контейнера */
+  margin: 10px; /* Добавлено небольшое внешнее пространство */
+}
+
+.center-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.center-label-available {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#chart-value {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
