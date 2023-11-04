@@ -1,67 +1,187 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 20px;
 }
 
 .title {
-    font-family: 'Arial', sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--Text-Black, #0a0e1a);
+  margin-bottom: 20px;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 28px */
 }
-
-.database-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 
 .card {
-    width: 250px;
-    height: 150px;
-    margin: 10px;
-    padding: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s ease;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.05); 
 }
 
 .database-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.tables-count {
-    color: #4CAF50;
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5f2fe; 
+  border-radius: 20%; 
+  margin-right: 10px;
+}
+
+.icon-container svg {
+  width: 80%;
+  height: 80%;
+}
+
+.text-container {
+  color: var(--Text-Black, #0a0e1a);
+
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; 
+}
+
+.database-box {
+  border-radius: 8px;
+  border: 1px solid #f3f3f3;
+  background: #fff;
+  padding: 16px;
+}
+
+.error-count {
+  color: var(--Red, #de4848);
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 10px;
+}
+
+.alert-count {
+  color: var(--Main-Text, #0a0e1a);
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 .memory {
-    color: #FFC107;
+  color: #ffc107;
 }
 
+p {
+  color: var(--Main-Text, #0a0e1a);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.log-card {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #f3f3f3;
+  background: #fff;
+
+  padding: 16px;
+}
+
+
+.log-title {
+  color: var(--Text-Black, #0a0e1a);
+  font-family: Open Sans;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+
+.log-time {
+  color: var(--Text-Black, #0a0e1a);
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+
+.log-container {
+  background: var(--Red, #de4848);
+  padding: 2px 12px; 
+  border-radius: 8px;
+  display: inline-block;   line-height: 0;   height: 100%; 
+}
+
+.warning-text {
+  color: #fff; 
+  font-family: "Open Sans", sans-serif; 
+  font-size: 18px; 
+  font-style: normal;
+  font-weight: 600; 
+}
+
+
+.divider {
+  background: #f3f3f3;
+  height: 1px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
+.error-name {
+  color: var(--70-text, #78828e);
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.month-container {
+  position: absolute;
+  top: 24px; 
+  right: 34px; 
+  color: var(--70-text, #78828e);
+  border: 1px solid #f3f3f3;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}

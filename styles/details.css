@@ -13,37 +13,19 @@ body {
 .app-bar {
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding-left: 10px;
   display: flex;
   align-items: center;
 }
-
-.menu-icon {
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-.menu {
-  display: none;
-  color: #fff;
-  transition: left 0.3s ease;
-}
-
-.menu.open {
-  display: block;
-}
-
-.menu ul li {
-  margin-bottom: 20px;
+ul li {
   transition: transform 0.3s ease;
 }
 
-.menu ul li:hover {
+ul li:hover {
   transform: translateX(10px);
 }
 
-.menu ul li a {
+ul li a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
@@ -51,16 +33,16 @@ body {
   transition: color 0.3s ease;
 }
 
-.menu ul li a:hover {
-  color: #ffd700; /* Change the color on hover */
+ul li a:hover {
+  color: #ffd700; 
 }
 
 .database-info {
   border-radius: 12px;
   background: #fff;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow effect */
-  margin-bottom: 20px; /* Optional: Add space between database info containers */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 20px; 
 }
 
 .content {
@@ -73,7 +55,7 @@ p {
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; /* 19.6px */
+  line-height: 140%; 
 }
 
 h2 {
@@ -82,7 +64,7 @@ h2 {
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
 }
 
 .error-count {
@@ -91,20 +73,20 @@ h2 {
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 130%; /* 23.4px */
+  line-height: 130%
 }
 
 .divider {
   height: 1px;
   background-color: #ccc;
-  margin: 20px 0; /* Adjust the margin as needed */
+  margin: 20px 0;
 }
 
 .chart-container {
   position: relative;
   width: 300px;
-  max-height: 400px; /* Максимальная высота контейнера */
-  margin: 10px; /* Добавлено небольшое внешнее пространство */
+  max-height: 400px; 
+  margin: 10px;
 }
 
 .center-label {

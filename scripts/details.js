@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Get database details from localStorage (or from API using fetch, as per your requirements)
   const databaseDetails = JSON.parse(localStorage.getItem("selectedDatabase"));
 
-  // Render database details
   if (databaseDetails) {
     const dataBaseInfoContainer = createDataBaseInfoContainer(databaseDetails);
     const errorCountContainer = createErrorCountContainer(databaseDetails);
@@ -75,34 +73,15 @@ function createAvailableMemoryContainer() {
   const container = document.createElement("div");
   container.className = "database-info";
 
+  const heading = document.createElement("h1");
+  heading.innerText = "Доступная память:";
+
   const chartContainer = document.createElement("div");
   chartContainer.className = "chart-container";
   chartContainer.innerHTML =
     '<canvas id="halfDoughnutChart"></canvas><div class="center-label-available">Занято<br><div id="chartValue" style="text-align: center; font-size: 18px; font-weight: bold; margin-top: 20px;"><span id="percentageValue">0.00</span> Гб / <span id="totalValue">0.00</span> Гб</div></br></div>';
 
-  //   const canvas = document.createElement("canvas");
-  //   canvas.id = "halfDoughnutChart";
-
-  //   const centerLabel = document.createElement("div");
-  //   centerLabel.className = "center-label-available";
-  //   centerLabel.innerText = "Занято";
-
-  //   const br = document.createElement("br");
-  //   const chartValue = document.createElement("div");
-  //   chartValue.id = "chartValue";
-  //   const percentageValue = document.createElement("span");
-  //   percentageValue.id = "percentageValue";
-  //   const totalValue = document.createElement("span");
-  //   totalValue.id = "totalValue";
-
-  //   chartValue.appendChild(percentageValue);
-  //   chartValue.appendChild(totalValue);
-  //   br.appendChild(chartValue);
-  //   centerLabel.appendChild(br);
-
-  //   chartContainer.appendChild(canvas);
-  //   chartContainer.appendChild(centerLabel);
-
+  container.appendChild(heading);
   container.appendChild(chartContainer);
 
   return container;
@@ -120,19 +99,17 @@ function setupMemoryDiagram(databaseDetails) {
           generateRandomColor()
         ),
         hoverBackgroundColor: ["#ff7946", "#46ff79", "#7946ff"],
-        borderWidth: 2, // Set the border width to create gaps
-        spacing: 5, // Добавляем отступы между значениями
+        borderWidth: 2, 
+        spacing: 5,
         borderRadius: 10,
       },
     ],
   };
 
-  // Вычислите общую сумму значений
   var totalValue = databaseDetails.tables
     .map((table) => table.memory)
     .reduce((a, b) => a + b, 0);
 
-  // Создайте новый массив с лейблами, включая проценты
   var labelsWithPercentages = data.labels.map(function (label, index) {
     var percentage =
       ((databaseDetails.tables[index].memory / totalValue) * 100).toFixed(2) +
@@ -147,7 +124,7 @@ function setupMemoryDiagram(databaseDetails) {
         display: true,
         align: "start",
         position: "left",
-        position: "bottom", // Перемещаем легенду наверх
+        position: "bottom",
         labels: {
           usePointStyle: true,
           pointStyle: "circle",
@@ -174,13 +151,12 @@ function setupMemoryDiagram(databaseDetails) {
   var donutChart = new Chart(ctx, {
     type: "doughnut",
     data: {
-      labels: labelsWithPercentages, // Используйте массив с процентами
+      labels: labelsWithPercentages, 
       datasets: data.datasets,
     },
     options: options,
   });
 
-  // Обновляем текст внутри .center-label
   document.querySelector(".center-label").textContent =
     "Всего: " + totalValue + " гб";
 }
