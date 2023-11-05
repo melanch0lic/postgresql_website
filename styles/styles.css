@@ -82,7 +82,7 @@ body {
 .error-count {
   color: var(--Red, #de4848);
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 130%;
@@ -92,7 +92,7 @@ body {
 .alert-count {
   color: var(--Main-Text, #0a0e1a);
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 130%;
