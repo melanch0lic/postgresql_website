@@ -4,13 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (databaseDetails) {
     const dataBaseInfoContainer = createDataBaseInfoContainer(databaseDetails);
     const errorCountContainer = createErrorCountContainer(databaseDetails);
+    const lineChartContainer = createLineChartContainer();
+    const cpuStatisticsContainer = createCpuStatisticsContainer();
     const memoryDiagramContainer = createMemoryDiagram(databaseDetails);
     const memoryAvailableContainer = createAvailableMemoryContainer();
     const contentContainer = document.getElementById("content");
     contentContainer.appendChild(dataBaseInfoContainer);
     contentContainer.appendChild(errorCountContainer);
+    contentContainer.appendChild(lineChartContainer);
+    contentContainer.appendChild(cpuStatisticsContainer);
     contentContainer.appendChild(memoryAvailableContainer);
     contentContainer.appendChild(memoryDiagramContainer);
+    setupLineChartDiagram(databaseDetails);
+    setupCpuChartDiagram(databaseDetails);
     setupAvailableMemoryDiagram(databaseDetails);
     setupMemoryDiagram(databaseDetails);
   } else {
@@ -20,6 +26,158 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Database details not found.");
   }
 });
+
+function setupCpuChartDiagram(databaseDetails) {
+  var cpuUsage = 75;
+
+  var data = {
+    labels: ["CPU Usage", "Unused"],
+    datasets: [
+      {
+        data: [cpuUsage, 100 - cpuUsage],
+        backgroundColor: ["rgba(0, 155, 114, 1)", "rgba(255, 255, 255, 0.8)"],
+      },
+    ],
+  };
+
+  var ctx = document.getElementById("cpuChart").getContext("2d");
+  var cpuChart = new Chart(ctx, {
+    type: "doughnut",
+    data: data,
+    options: {
+      cutout: "60%",
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  });
+}
+
+function createCpuStatisticsContainer() {
+  const container = document.createElement("div");
+  container.className = "row";
+
+  const diagram = document.createElement("div");
+  diagram.className = "database-info";
+
+  const heading = document.createElement("h2");
+  heading.innerText = "Загруженность ЦП";
+
+  const chartContainer = document.createElement("div");
+  chartContainer.className = "chart-container-cpu";
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "cpuChart";
+  canvas.width = 100;
+  canvas.height = 100;
+
+  const centerLabel = document.createElement("div");
+  centerLabel.className = "center-label-cpu";
+  centerLabel.innerText = "75%";
+
+  chartContainer.appendChild(canvas);
+  chartContainer.appendChild(centerLabel);
+
+  diagram.appendChild(heading);
+  diagram.appendChild(chartContainer);
+
+  const column = document.createElement("div");
+  column.className = "column";
+
+  const firstElement = document.createElement("div");
+  firstElement.className = "database-info";
+  firstElement.style.paddingLeft = "25px";
+  firstElement.style.paddingRight = "25px";
+  firstElement.style.paddingTop = "10px";
+  firstElement.style.paddingBottom = "10px";
+
+  const processCount = document.createElement("h2");
+  processCount.className = "count";
+  processCount.innerText = "46";
+  const processName = document.createElement("p");
+  processName.className = "count-name";
+  processName.innerText = "Процессов";
+
+  firstElement.appendChild(processCount);
+  firstElement.appendChild(processName);
+
+  const secondElement = document.createElement("div");
+  secondElement.className = "database-info";
+  secondElement.style.paddingLeft = "25px";
+  secondElement.style.paddingRight = "25px";
+  secondElement.style.paddingTop = "10px";
+  secondElement.style.paddingBottom = "10px";
+
+  const sessionCount = document.createElement("h2");
+  sessionCount.className = "count";
+  sessionCount.innerText = "10";
+  const sessionName = document.createElement("p");
+  sessionName.className = "count-name";
+  sessionName.innerText = "Сессий";
+
+  secondElement.appendChild(sessionCount);
+  secondElement.appendChild(sessionName);
+
+  column.appendChild(firstElement);
+  column.appendChild(secondElement);
+
+  container.appendChild(diagram);
+  container.appendChild(column);
+
+  return container;
+}
+
+function setupLineChartDiagram(databaseDetails) {
+  const data = {
+    labels: ["Сентябрь", "Октябрь", "Ноябрь", "Декабрь", "Январь"],
+    datasets: [
+      {
+        label: "Ошибки",
+        drawActiveElementsOnTop: false,
+        data: [10, 30, 15, 22, 18],
+        borderColor: "#7339F5",
+        borderWidth: 3,
+        borderCapStyle: "round",
+        cubicInterpolationMode: "monotone",
+      },
+    ],
+  };
+
+  const ctx = document.getElementById("lineChart").getContext("2d");
+  const lineChart = new Chart(ctx, {
+    type: "line",
+    data,
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
+function createLineChartContainer() {
+  const container = document.createElement("div");
+  container.className = "database-info";
+
+  const heading = document.createElement("h2");
+  heading.textContent = "Статистика ошибок";
+  container.append(heading);
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "lineChart";
+  container.append(canvas);
+
+  return container;
+}
 
 function generateRandomColor() {
   const letters = "0123456789ABCDEF";
@@ -31,18 +189,15 @@ function generateRandomColor() {
 }
 
 function setupAvailableMemoryDiagram(databaseDetails) {
-  var ctx = document.getElementById("halfDoughnutChart").getContext("2d");
-  var data = [
-    databaseDetails.tables
-      .map((table) => table.memory)
-      .reduce((a, b) => a + b, 0),
-    databaseDetails.maxMemory,
-  ];
+  const ctx = document.getElementById("halfDoughnutChart").getContext("2d");
 
-  var maxMemory = data[1];
-  var databaseMemory = data[0];
+  const databaseMemory = databaseDetails.tables.reduce(
+    (total, table) => total + table.memory,
+    0
+  );
+  const maxMemory = databaseDetails.maxMemory;
 
-  var config = {
+  const config = {
     type: "doughnut",
     data: {
       datasets: [
@@ -61,9 +216,10 @@ function setupAvailableMemoryDiagram(databaseDetails) {
       },
     },
   };
-  var myChart = new Chart(ctx, config);
-  var percentageValue = document.getElementById("percentageValue");
-  var totalValue = document.getElementById("totalValue");
+
+  const myChart = new Chart(ctx, config);
+  const percentageValue = document.getElementById("percentageValue");
+  const totalValue = document.getElementById("totalValue");
 
   percentageValue.innerText = databaseMemory;
   totalValue.innerText = maxMemory;
@@ -100,7 +256,7 @@ function setupMemoryDiagram(databaseDetails) {
           generateRandomColor()
         ),
         hoverBackgroundColor: ["#ff7946", "#46ff79", "#7946ff"],
-        borderWidth: 2, 
+        borderWidth: 2,
         spacing: 5,
         borderRadius: 10,
       },
@@ -152,7 +308,7 @@ function setupMemoryDiagram(databaseDetails) {
   var donutChart = new Chart(ctx, {
     type: "doughnut",
     data: {
-      labels: labelsWithPercentages, 
+      labels: labelsWithPercentages,
       datasets: data.datasets,
     },
     options: options,

@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     card.addEventListener("click", function () {
       localStorage.setItem("selectedDatabase", JSON.stringify(database));
-      window.location.href = `details.html?id=${database.id}`; 
+      window.location.href = `public/details.html?id=${database.id}`;
     });
 
     card.appendChild(nameElement);
