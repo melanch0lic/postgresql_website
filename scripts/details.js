@@ -106,7 +106,7 @@ function createRequestPerSecondContainer() {
   requestCount.className = "count flex-item";
 
   const requestName = document.createElement("div");
-  requestName.innerText = "Запросов в секунду";
+  requestName.innerText = "Запросов\nв секунду";
   requestName.className = "count-name flex-item";
 
   const transactionTimeColumn = document.createElement("div");
@@ -198,16 +198,16 @@ function createCpuStatisticsContainer() {
   column.className = "column flex-item-1";
 
   const firstElement = document.createElement("div");
-  firstElement.className = "database-info";
+  firstElement.className = "database-info db-sessions";
   firstElement.style.paddingLeft = "25px";
   firstElement.style.paddingRight = "25px";
   firstElement.style.paddingTop = "10px";
   firstElement.style.paddingBottom = "10px";
 
-  const processCount = document.createElement("h2");
+  const processCount = document.createElement("div");
   processCount.className = "count";
   processCount.innerText = "46";
-  const processName = document.createElement("p");
+  const processName = document.createElement("div");
   processName.className = "count-name";
   processName.innerText = "Процессов";
 
@@ -215,16 +215,16 @@ function createCpuStatisticsContainer() {
   firstElement.appendChild(processName);
 
   const secondElement = document.createElement("div");
-  secondElement.className = "database-info";
+  secondElement.className = "database-info db-sessions";
   secondElement.style.paddingLeft = "25px";
   secondElement.style.paddingRight = "25px";
   secondElement.style.paddingTop = "10px";
   secondElement.style.paddingBottom = "10px";
 
-  const sessionCount = document.createElement("h2");
+  const sessionCount = document.createElement("div");
   sessionCount.className = "count";
   sessionCount.innerText = "10";
-  const sessionName = document.createElement("p");
+  const sessionName = document.createElement("div");
   sessionName.className = "count-name";
   sessionName.innerText = "Сессий";
 
@@ -432,6 +432,7 @@ function setupMemoryDiagram(databaseDetails) {
 function createMemoryDiagram(databaseDetails) {
   const container = document.createElement("div");
   container.className = "database-info";
+
 
   const chartContainer = document.createElement("div");
   chartContainer.className = "chart-container";
