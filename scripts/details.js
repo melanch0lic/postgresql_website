@@ -229,7 +229,8 @@ function createAvailableMemoryContainer() {
   const container = document.createElement("div");
   container.className = "database-info";
 
-  const heading = document.createElement("h2");
+  const heading = document.createElement("div");
+  heading.className = "card-title";
   heading.innerText = "Доступная память:";
 
   const chartContainer = document.createElement("div");
@@ -341,7 +342,8 @@ function createErrorCountContainer(databaseDetails) {
   const container = document.createElement("div");
   container.className = "database-info";
 
-  const heading = document.createElement("h1");
+  const heading = document.createElement("div");
+  heading.className = "card-title";
   heading.innerText = "Сводка за 24 часа";
 
   const errorCountElement = document.createElement("h2");
@@ -365,20 +367,23 @@ function createDataBaseInfoContainer(databaseDetails) {
   const container = document.createElement("div");
   container.className = "database-info";
 
-  const heading = document.createElement("h1");
+  const heading = document.createElement("div");
+  heading.className = "card-title";
   heading.innerText = "Информация о базе данных";
 
-  const nameElement = document.createElement("h2");
+  const nameElement = document.createElement("div");
   nameElement.innerText = databaseDetails.name;
+  nameElement.className = "db-name";
 
-  const underNameElement = document.createElement("p");
+  const underNameElement = document.createElement("div");
   underNameElement.innerText = "Название";
+  underNameElement.className = "db-label";
 
   const dividerElement = document.createElement("div");
   dividerElement.className = "divider";
 
-  const infoParagraph = document.createElement("h2");
-  infoParagraph.innerText = databaseDetails.creator;
+  //const infoParagraph = document.createElement("h2");
+  //infoParagraph.innerText = databaseDetails.creator;
 
   const tablesCountElement = document.createElement("h2");
   tablesCountElement.innerText =
@@ -393,7 +398,7 @@ function createDataBaseInfoContainer(databaseDetails) {
   container.appendChild(heading);
   container.appendChild(nameElement);
   container.appendChild(underNameElement);
-  container.appendChild(infoParagraph);
+  //container.appendChild(infoParagraph);
   container.appendChild(dividerElement);
   container.appendChild(tablesCountElement);
   container.appendChild(memoryElement);

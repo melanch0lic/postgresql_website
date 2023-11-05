@@ -74,14 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const creatorElement = document.createElement("p");
     creatorElement.textContent = `Сводка за 24 часа`;
+    creatorElement.className = "summary-title";
 
     const errorCountElement = document.createElement("div");
     errorCountElement.className = "error-count";
-    errorCountElement.textContent = `Ошибок обнаружено: ${database.errorCount}`;
+    errorCountElement.textContent = `Ошибок: ${database.errorCount}`;
 
     const alertCountElement = document.createElement("div");
     alertCountElement.className = "alert-count";
-    alertCountElement.textContent = `Предупреждения: ${database.alertCount}`;
+    alertCountElement.textContent = `Предупреждений: ${database.alertCount}`;
 
     databaseBoxContainer.appendChild(creatorElement);
     databaseBoxContainer.appendChild(errorCountElement);
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const card = document.createElement("div");
   card.className = "log-card";
 
-  const logTitle = document.createElement("h2");
+  const logTitle = document.createElement("div");
   logTitle.className = "log-title";
   logTitle.innerText = "Последние логи";
 
@@ -110,11 +111,17 @@ document.addEventListener("DOMContentLoaded", function () {
   monthContainer.className = "month-container";
   monthContainer.innerText = "За месяц";
 
-  card.appendChild(logTitle);
-  card.appendChild(monthContainer);
+  const monthTitle = document.createElement("div");
+  monthTitle.className = "monthTitle";
+  monthTitle.appendChild(logTitle);
+  monthTitle.appendChild(monthContainer);
+
+
 
   const logCard = document.createElement("div");
   logCard.className = "log-card";
+  logCard.appendChild(monthTitle);
+
 
   const logTime = document.createElement("p");
   logTime.className = "log-time";
