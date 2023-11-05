@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorCountContainer = createErrorCountContainer(databaseDetails);
     const lineChartContainer = createLineChartContainer();
     const cpuStatisticsContainer = createCpuStatisticsContainer();
+    const requestPerSecondContainer = createRequestPerSecondContainer();
     const memoryDiagramContainer = createMemoryDiagram(databaseDetails);
     const memoryAvailableContainer = createAvailableMemoryContainer();
     const contentContainer = document.getElementById("content");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contentContainer.appendChild(errorCountContainer);
     contentContainer.appendChild(lineChartContainer);
     contentContainer.appendChild(cpuStatisticsContainer);
+    contentContainer.appendChild(requestPerSecondContainer);
     contentContainer.appendChild(memoryAvailableContainer);
     contentContainer.appendChild(memoryDiagramContainer);
     setupLineChartDiagram(databaseDetails);
@@ -26,6 +28,53 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Database details not found.");
   }
 });
+
+function createRequestPerSecondContainer() {
+  const container = document.createElement("div");
+  container.className = "database-info";
+  container.style.padding = "20px";
+
+  const row = document.createElement("div");
+  row.className = "row-requst";
+
+  const requestColumn = document.createElement("div");
+  requestColumn.className = "column";
+
+  const requestCount = document.createElement("div");
+  requestCount.innerText = "140";
+  requestCount.className = "count flex-item";
+
+  const requestName = document.createElement("div");
+  requestName.innerText = "Запросов в секунду";
+  requestName.className = "count-name flex-item";
+
+  const transactionTimeColumn = document.createElement("div");
+  transactionTimeColumn.className = "column";
+
+  const transactionTime = document.createElement("div");
+  transactionTime.innerText = "2550мс";
+  transactionTime.className = "count flex-item";
+
+  const transactionName = document.createElement("div");
+  transactionName.innerText = "Самая долгая\nтранзакция";
+  transactionName.className = "count-name flex-item";
+
+  requestColumn.appendChild(requestCount);
+  requestColumn.appendChild(requestName);
+  transactionTimeColumn.appendChild(transactionTime);
+  transactionTimeColumn.appendChild(transactionName);
+
+  const divider = document.createElement("div");
+  divider.className = "vertical-divider";
+
+  row.appendChild(requestColumn);
+  row.appendChild(divider);
+  row.appendChild(transactionTimeColumn);
+
+  container.appendChild(row);
+
+  return container;
+}
 
 function setupCpuChartDiagram(databaseDetails) {
   var cpuUsage = 75;
@@ -57,7 +106,7 @@ function setupCpuChartDiagram(databaseDetails) {
 
 function createCpuStatisticsContainer() {
   const container = document.createElement("div");
-  container.className = "row";
+  container.className = "row-cpu";
 
   const diagram = document.createElement("div");
   diagram.className = "database-info";
@@ -85,7 +134,7 @@ function createCpuStatisticsContainer() {
   diagram.appendChild(chartContainer);
 
   const column = document.createElement("div");
-  column.className = "column";
+  column.className = "column flex-item-1";
 
   const firstElement = document.createElement("div");
   firstElement.className = "database-info";

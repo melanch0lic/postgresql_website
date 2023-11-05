@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #F6F6F8;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f6f6f8;
 }
 
 .container {
@@ -12,7 +12,7 @@ body {
 .title {
   color: var(--Text-Black, #0a0e1a);
   margin-bottom: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -31,9 +31,31 @@ body {
   transition: all 0.3s ease;
 }
 
+.count {
+  color: var(--Text-Black, #0a0e1a);
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 30px */
+}
+
+.count-name {
+  color: var(--Secondary-Text, #78828e);
+
+  /* Open Sans/14/Regular */
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
 .card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
-  transform: scale(1.05); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .database-name {
@@ -46,14 +68,33 @@ body {
   margin-bottom: 24px;
 }
 
+.row-requst{
+  display: flex;
+  justify-content: space-around;
+}
+
+.row-cpu {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.flex-item{
+    height: 100;
+}
+
+.flex-item-1 {
+  flex: 1;
+}
+
 .icon-container {
   width: 50px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5f2fe; 
-  border-radius: 20%; 
+  background-color: #e5f2fe;
+  border-radius: 20%;
   margin-right: 16px;
 }
 
@@ -65,11 +106,11 @@ body {
 .text-container {
   color: var(--Text-Black, #0a0e1a);
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; 
+  line-height: 140%;
 }
 
 .database-box {
@@ -81,7 +122,7 @@ body {
 
 .error-count {
   color: var(--Red, #de4848);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -91,7 +132,7 @@ body {
 
 .alert-count {
   color: var(--Main-Text, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -104,7 +145,7 @@ body {
 
 p {
   color: var(--Main-Text, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -121,7 +162,7 @@ p {
 
 .log-title {
   color: var(--Text-Black, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -131,7 +172,7 @@ p {
 
 .log-time {
   color: var(--Text-Black, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -142,14 +183,16 @@ p {
 
 .log-container {
   background: var(--Red, #de4848);
-  padding: 2px 12px; 
+  padding: 2px 12px;
   border-radius: 8px;
-  display: inline-block;   line-height: 0;   height: 100%; 
+  display: inline-block;
+  line-height: 0;
+  height: 100%;
 }
 
 .warning-text {
-  color: #fff; 
-  font-family: "Open Sans", sans-serif; 
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -164,10 +207,14 @@ p {
   margin-bottom: 16px;
 }
 
+.vertical-divider {
+    background: #f3f3f3;
+    width: 1px;
+  }
 
 .error-name {
-  color: var(--70-text, #78828E);
-  font-family: 'Open Sans', sans-serif;
+  color: var(--70-text, #78828e);
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -175,17 +222,15 @@ p {
   margin: 0;
 }
 
-
-
 .month-container {
-  top: 24px; 
-  right: 34px; 
+  top: 24px;
+  right: 34px;
   color: var(--70-text, #78828e);
   border: 1px solid #f3f3f3;
   background: #fff;
   border-radius: 8px;
   padding: 6px 12px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -193,7 +238,7 @@ p {
 
 .summary-title {
   color: var(--Text-Black, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -205,6 +250,11 @@ p {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
 }
 
 .app-bar {
@@ -231,15 +281,15 @@ ul li a {
 }
 
 ul li a:hover {
-  color: #ffd700; 
+  color: #ffd700;
 }
 
 .database-info {
   border-radius: 12px;
   background: #fff;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  margin-bottom: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .content {
@@ -248,26 +298,30 @@ ul li a:hover {
 
 p {
   color: var(--Text-Black, #78828e);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; 
+  line-height: 140%;
 }
 
 h2 {
   color: var(--Text-Black, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
 }
 
+.chart-container-cpu {
+  position: relative;
+}
+
 .chart-container {
   position: relative;
   width: 300px;
-  max-height: 400px; 
+  max-height: 400px;
   margin: 10px;
 }
 
@@ -277,6 +331,15 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 15px;
+  font-weight: bold;
+}
+
+.center-label-cpu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -305,7 +368,7 @@ h2 {
 
 .card-title {
   color: var(--Text-Black, #0a0e1a);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -314,8 +377,8 @@ h2 {
 }
 
 .db-name {
-  color: var(--Text-Black, #0A0E1A);
-  font-family: 'Open Sans', sans-serif;
+  color: var(--Text-Black, #0a0e1a);
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -324,8 +387,8 @@ h2 {
 }
 
 .db-label {
-  color: var(--Secondary-Text, #78828E);
-  font-family: 'Open Sans', sans-serif;
+  color: var(--Secondary-Text, #78828e);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
