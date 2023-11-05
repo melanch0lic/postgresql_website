@@ -8,10 +8,13 @@
 </head>
 <body>
     <div class="app">
-        <div class="app-bar">
-            <ul>
-                <li><a href="#" onclick="showPage('home')">Вернуться к списку баз данных</a></li>
-            </ul>
+        <div class="back-button" id="backButton" style="background-color: white;">
+            <a href="#" onclick="showPage('home')"><span>&#8249;</span> Назад</a>
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab active" id="tabSummary">Сводка</div>
+            <div class="tab" id="tabLogs">Логи</div>
         </div>
         <div class="content" id="content">
         </div>

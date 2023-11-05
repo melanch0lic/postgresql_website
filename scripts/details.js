@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
+  showSummary();
+  const tabs = document.querySelectorAll(".tab");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+      if (tab.id === "tabSummary") {
+        showSummary();
+      } else if (tab.id === "tabLogs") {
+        showLogs();
+      }
+    });
+  });
+});
+
+function showLogs() {
+  const contentContainer = document.getElementById("content");
+  while (contentContainer.firstChild) {
+    contentContainer.removeChild(contentContainer.firstChild);
+  }
+
+  const dateContainer = document.createElement("div");
+  dateContainer.className = "date-container";
+  dateContainer.textContent = "04.11.2023";
+
+  const logCard = generateLogCard();
+
+  contentContainer.appendChild(dateContainer);
+  contentContainer.appendChild(logCard);
+}
+
+function showSummary() {
   const databaseDetails = JSON.parse(localStorage.getItem("selectedDatabase"));
 
   if (databaseDetails) {
@@ -11,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const memoryDiagramContainer = createMemoryDiagram(databaseDetails);
     const memoryAvailableContainer = createAvailableMemoryContainer();
     const contentContainer = document.getElementById("content");
+    while (contentContainer.firstChild) {
+      contentContainer.removeChild(contentContainer.firstChild);
+    }
     contentContainer.appendChild(dataBaseInfoContainer);
     contentContainer.appendChild(errorCountContainer);
     contentContainer.appendChild(lineChartContainer);
@@ -29,7 +64,39 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     console.error("Database details not found.");
   }
-});
+}
+
+function generateLogCard(name) {
+  const logCard = document.createElement("div");
+  logCard.className = "log-card";
+
+  const logTime = document.createElement("p");
+  logTime.className = "log-time";
+  logTime.innerText = "00:10:56";
+
+  const logContainer = document.createElement("div");
+  const warningText = document.createElement("p");
+  warningText.className = "warning-text";
+
+  logContainer.className = "log-container-error";
+  warningText.innerText = "Ошибка";
+
+  const divider = document.createElement("div");
+  divider.className = "divider";
+
+  const errorName = document.createElement("p");
+  errorName.className = "error-name";
+  errorName.innerText = 'ERROR: 42P01: relation "[Table]" does not exist';
+
+  logContainer.appendChild(warningText);
+
+  logCard.appendChild(logTime);
+  logCard.appendChild(logContainer);
+  logCard.appendChild(divider);
+  logCard.appendChild(errorName);
+
+  return logCard;
+}
 
 function createAdvanceInfo() {
   const container = document.createElement("div");
@@ -432,7 +499,6 @@ function setupMemoryDiagram(databaseDetails) {
 function createMemoryDiagram(databaseDetails) {
   const container = document.createElement("div");
   container.className = "database-info";
-
 
   const chartContainer = document.createElement("div");
   chartContainer.className = "chart-container";
