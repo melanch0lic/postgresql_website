@@ -208,12 +208,13 @@ function setupCpuChartDiagram(databaseDetails) {
   var cpuUsage = 75;
 
   var data = {
-    labels: ["CPU Usage", "Unused"],
+    labels: ["Используется", "Не используется"],
     datasets: [
       {
         data: [cpuUsage, 100 - cpuUsage],
-        backgroundColor: ["rgba(0, 155, 114, 1)", "rgba(255, 255, 255, 0.8)"],
+        backgroundColor: ["rgba(0, 155, 114, 1)", "rgba(243, 243, 243, 1)"], 
       },
+     
     ],
   };
 
@@ -382,7 +383,7 @@ function setupAvailableMemoryDiagram(databaseDetails) {
       datasets: [
         {
           data: [databaseMemory, maxMemory - databaseMemory],
-          backgroundColor: ["rgba(255, 138, 0, 1)", "rgba(243, 243, 243, 1)"],
+          backgroundColor: ["rgba(255, 138, 0, 1)", "rgba(243, 243, 243, 1)"], borderRadius: 10,
         },
       ],
     },
@@ -410,7 +411,7 @@ function createAvailableMemoryContainer() {
 
   const heading = document.createElement("div");
   heading.className = "card-title";
-  heading.innerText = "Доступная память:";
+  heading.innerText = "Свободное место";
 
   const chartContainer = document.createElement("div");
   chartContainer.className = "chart-container";
@@ -434,7 +435,7 @@ function setupMemoryDiagram(databaseDetails) {
         backgroundColor: databaseDetails.tables.map((table) =>
           generateRandomColor()
         ),
-        hoverBackgroundColor: ["#ff7946", "#46ff79", "#7946ff"],
+       
         borderWidth: 2,
         spacing: 5,
         borderRadius: 10,
@@ -469,11 +470,7 @@ function setupMemoryDiagram(databaseDetails) {
           padding: 10,
         },
       },
-      title: {
-        display: true,
-        text: "Распределение памяти",
-        position: "top",
-      },
+    
       tooltip: {
         callbacks: {
           label: function (context) {
@@ -499,7 +496,9 @@ function setupMemoryDiagram(databaseDetails) {
 function createMemoryDiagram(databaseDetails) {
   const container = document.createElement("div");
   container.className = "database-info";
-
+  const heading = document.createElement("div");
+  heading.className = "card-title";
+  heading.innerText = "Распределение памяти";
   const chartContainer = document.createElement("div");
   chartContainer.className = "chart-container";
 
@@ -508,7 +507,8 @@ function createMemoryDiagram(databaseDetails) {
 
   const centerLabel = document.createElement("div");
   centerLabel.className = "center-label";
-
+  
+  chartContainer.appendChild(heading);
   chartContainer.appendChild(canvas);
   chartContainer.appendChild(centerLabel);
 
