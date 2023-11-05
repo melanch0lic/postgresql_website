@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const lineChartContainer = createLineChartContainer();
     const cpuStatisticsContainer = createCpuStatisticsContainer();
     const requestPerSecondContainer = createRequestPerSecondContainer();
+    const advanceInfoContainer = createAdvanceInfo();
     const memoryDiagramContainer = createMemoryDiagram(databaseDetails);
     const memoryAvailableContainer = createAvailableMemoryContainer();
     const contentContainer = document.getElementById("content");
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contentContainer.appendChild(lineChartContainer);
     contentContainer.appendChild(cpuStatisticsContainer);
     contentContainer.appendChild(requestPerSecondContainer);
+    contentContainer.appendChild(advanceInfoContainer);
     contentContainer.appendChild(memoryAvailableContainer);
     contentContainer.appendChild(memoryDiagramContainer);
     setupLineChartDiagram(databaseDetails);
@@ -28,6 +30,65 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Database details not found.");
   }
 });
+
+function createAdvanceInfo() {
+  const container = document.createElement("div");
+  container.className = "database-info";
+  container.style.padding = "16px";
+
+  const title = document.createElement("div");
+  title.className = "card-title";
+  title.innerText = "Подробная информация";
+
+  const element1 = document.createElement("div");
+  element1.innerHTML = `
+    <div style="width: 100%; height: 94px; position: relative; margin-bottom:16px">
+    <div style="width: 100%; height: 94px; left: 0px; top: 0px; position: absolute; background: #EAF5FF; border-radius: 12px"></div>
+    <div style="width: 2px; height: 46px; left: 0px; top: 21px; position: absolute; background: #0080FC; box-shadow: 2px 0px 4px rgba(0, 128, 252, 0.48)"></div>
+    <div style="width: 244px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+        <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
+            <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, вставленных запросами</div>
+                <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">1457</div>
+            </div>
+        </div>
+    </div>
+</div>`;
+  const element2 = document.createElement("div");
+  element2.innerHTML = `<div style="width: 100%; height: 94px; position: relative; margin-bottom:16px">
+  <div style="width: 100%; height: 94px; left: 0px; top: 0px; position: absolute; background: #F3EDFF; border-radius: 12px"></div>
+  <div style="width: 2px; height: 46px; left: 0px; top: 21px; position: absolute; background: #7339F5; box-shadow: 2px 0px 4px rgba(115, 57, 245, 0.48)"></div>
+  <div style="width: 250px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+      <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
+          <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+              <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, обновлённых запросами</div>
+              <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">3142</div>
+          </div>
+      </div>
+  </div>
+</div>`;
+
+  const element3 = document.createElement("div");
+  element3.innerHTML = `
+  <div style="width: 100%; height: 94px; position: relative; margin-bottom:16px">
+    <div style="width: 100%; height: 94px; left: 0px; top: 0px; position: absolute; background: #FFF6EC; border-radius: 12px"></div>
+    <div style="width: 2px; height: 46px; left: 0px; top: 21px; position: absolute; background: #FF8A00; box-shadow: 2px 0px 4px rgba(255, 138, 0, 0.48)"></div>
+    <div style="width: 228px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+        <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
+            <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, удалённых запросами </div>
+                <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">2576</div>
+            </div>
+        </div>
+    </div>
+</div>`;
+
+  container.appendChild(title);
+  container.appendChild(element1);
+  container.appendChild(element2);
+  container.appendChild(element3);
+  return container;
+}
 
 function createRequestPerSecondContainer() {
   const container = document.createElement("div");
