@@ -409,7 +409,7 @@ function toggleMenu() {
 function showPage(page) {
   var content = document.getElementById("content");
   if (page === "home") {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   }
   toggleMenu();
 }
