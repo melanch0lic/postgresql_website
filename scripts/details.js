@@ -62,7 +62,8 @@ function createCpuStatisticsContainer() {
   const diagram = document.createElement("div");
   diagram.className = "database-info";
 
-  const heading = document.createElement("h2");
+  const heading = document.createElement("div");
+  heading.className = "card-title";
   heading.innerText = "Загруженность ЦП";
 
   const chartContainer = document.createElement("div");
@@ -168,8 +169,9 @@ function createLineChartContainer() {
   const container = document.createElement("div");
   container.className = "database-info";
 
-  const heading = document.createElement("h2");
+  const heading = document.createElement("div");
   heading.textContent = "Статистика ошибок";
+  heading.className = "card-title";
   container.append(heading);
 
   const canvas = document.createElement("canvas");
@@ -346,12 +348,12 @@ function createErrorCountContainer(databaseDetails) {
   heading.className = "card-title";
   heading.innerText = "Сводка за 24 часа";
 
-  const errorCountElement = document.createElement("h2");
+  const errorCountElement = document.createElement("div");
   errorCountElement.innerText =
     "Количество ошибок: " + databaseDetails.errorCount;
   errorCountElement.className = "error-count";
 
-  const alertCountElement = document.createElement("h2");
+  const alertCountElement = document.createElement("div");
   alertCountElement.innerText =
     "Количество предупреждений: " + databaseDetails.alertCount;
   alertCountElement.className = "alert-count";
