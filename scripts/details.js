@@ -105,7 +105,7 @@ function createAdvanceInfo() {
 
   const title = document.createElement("div");
   title.className = "card-title";
-  title.innerText = "Подробная информация";
+  title.innerText = "Подробная статистика";
 
   const element1 = document.createElement("div");
   element1.innerHTML = `
@@ -115,8 +115,8 @@ function createAdvanceInfo() {
     <div style="width: 244px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
         <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
             <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
-                <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, вставленных запросами</div>
-                <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">1457</div>
+                <div style="color: #78828E; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, вставленных запросами</div>
+                <div style="color: #0A0E1A; font-size: 25px; font-family: "Open Sans", sans-serif; font-weight: 700; line-height: 30px; word-wrap: break-word">1457</div>
             </div>
         </div>
     </div>
@@ -128,8 +128,8 @@ function createAdvanceInfo() {
   <div style="width: 250px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
       <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
           <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
-              <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, обновлённых запросами</div>
-              <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">3142</div>
+              <div style="color: #78828E; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, обновлённых запросами</div>
+              <div style="color: #0A0E1A; font-size: 25px; font-family: "Open Sans", sans-serif; font-weight: 700; line-height: 30px; word-wrap: break-word">3142</div>
           </div>
       </div>
   </div>
@@ -143,8 +143,8 @@ function createAdvanceInfo() {
     <div style="width: 228px; height: 58px; left: 16px; top: 16px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
         <div style="justify-content: flex-start; align-items: center; gap: 159px; display: inline-flex">
             <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
-                <div style="color: #78828E; font-size: 16px; font-family: Open Sans; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, удалённых запросами </div>
-                <div style="color: #0A0E1A; font-size: 25px; font-family: Open Sans; font-weight: 700; line-height: 30px; word-wrap: break-word">2576</div>
+                <div style="color: #78828E; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 24px; word-wrap: break-word">Строк, удалённых запросами </div>
+                <div style="color: #0A0E1A; font-size: 25px; font-family: "Open Sans", sans-serif; font-weight: 700; line-height: 30px; word-wrap: break-word">2576</div>
             </div>
         </div>
     </div>
